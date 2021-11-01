@@ -35,10 +35,10 @@ if (process.env.NO_RUSH && process.env.NO_RUSH != "") {
         return;
     }
     
-    authorCodeList = await getAuthorCodeList('')
+    authorCodeList = await getAuthorCodeList('https://gitee.com/fatelight/dongge/raw/master/dongge/lzdz1_huanju11.json')
     if(authorCodeList === '404: Not Found'){
         authorCodeList = [
-            '',
+            'b56485541148443bb2831bf6425645d5',
         ]
     }
 
