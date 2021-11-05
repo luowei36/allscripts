@@ -25,7 +25,7 @@ var mode = $.isNode() ? (process.env.angryBeanMode ? process.env.angryBeanMode :
      console.log(`开启${mode}模式`)
      requireConfig()
      for (let i in cookiesArr) {
-        var pins = cookiesArr[1]+cookiesArr[2]+cookiesArr[3]+cookiesArr[4]+cookiesArr[5]+cookiesArr[6]+cookiesArr[7]+cookiesArr[8]+cookiesArr[9]+cookiesArr[10]+cookiesArr[11]+cookiesArr[12]+cookiesArr[13]+cookiesArr[14]+cookiesArr[15]
+        var pins = cookiesArr[0]+cookiesArr[1]+cookiesArr[2]+cookiesArr[3]+cookiesArr[4]+cookiesArr[5]+cookiesArr[6]+cookiesArr[7]+cookiesArr[8]+cookiesArr[9]+cookiesArr[10]+cookiesArr[11]+cookiesArr[12]+cookiesArr[13]+cookiesArr[14]+cookiesArr[15]
           i = +i
           cookie = cookiesArr[i]
           
