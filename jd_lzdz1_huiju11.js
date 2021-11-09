@@ -1,12 +1,12 @@
 /*
-大牌强联合 好物提前购
-10-28 ~ 11~5
-https://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=946hf38m5d4vqjgs5ctfuickj65s69l528&shareUuid=f0a85730507a4ebcbd28162be46fc8f6
+惠聚11.11  好物乐享不停
+11.1 - 11.12
+https://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=dzlbklzmsk20211101A&shareUuid=b56485541148443bb2831bf6425645d5
 
 默认执行脚本。如果需要不执行
 环境变量 NO_RUSH=false
 */
-const $ = new Env("大牌强联合 好物提前购");
+const $ = new Env("惠聚11.11  好物乐享不停");
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 let cookiesArr = [], cookie = '', message = '';
@@ -67,10 +67,10 @@ if (process.env.NO_RUSH && process.env.NO_RUSH != "") {
             $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
             $.authorNum = `${random(1000000, 9999999)}`
             $.randomCode = random(1000000, 9999999)
-            $.activityId = '946hf38m5d4vqjgs5ctfuickj65s69l528'
-            $.activityShopId = '1000001469'
+            $.activityId = 'dzlbklzmsk20211101A'
+            $.activityShopId = '1000004489'
             $.activityUrl = `https://lzdz1-isv.isvjd.com/dingzhi/dz/openCard/activity/${$.authorNum}?activityId=${$.activityId}&shareUuid=${encodeURIComponent($.authorCode)}&adsource=null&shareuserid4minipg=null&shopid=${$.activityShopId}&lng=00.000000&lat=00.000000&sid=&un_area=`
-            if (isRush) {
+            if (isRush === true) {
                 console.log("未检测到不执行环境变量，执行任务")
                 await rush();
             } else {
