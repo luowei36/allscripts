@@ -76,6 +76,7 @@ const BASE_URL = 'https://m.jingxi.com/cubeactive/steprewardv3'
     cookie = cookiesArr[i];
     $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
     $.canHelp = true;
+    $.index = i + 1
     UA = UAInfo[$.UserName]
     token = await getJxToken()
 	let RemainInvites = {};
