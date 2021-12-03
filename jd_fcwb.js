@@ -1,26 +1,15 @@
-const $ = new Env('搞基大神-发财挖宝help');
+const $ = new Env('搞基大神-发财挖宝助力');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const JD_API_HOST = 'https://api.m.jd.com';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
-let fcwbinviteCode=''
-let fcwbinviter=''
-let fcwbroud=''
-let fcwbinviteCodeArr = []
-let fcwbinviterArr= []
-let fcwbinviteCodes=''
-let fcwbinviters=''
-if (process.env.fcwbinviteCode) {
-  fcwbinviteCode = process.env.fcwbinviteCode;
-}
-if (process.env.fcwbinviter) {
-  fcwbinviter = process.env.fcwbinviter;
-}
-if (process.env.fcwbroud) {
-  fcwbroud = process.env.fcwbroud;
-}
+
+
+let insertCodes = []
+let inviteCodes = []
+
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item])
@@ -54,56 +43,38 @@ if ($.isNode()) {
         }
         continue
       }
-          if (process.env.fcwbinviteCode && process.env.fcwbinviteCode.indexOf('@') > -1) {
-            fcwbinviteCodeArr = process.env.fcwbinviteCode.split('@');
-
-        }else {
-            fcwbinviteCodes = [process.env.fcwbinviteCode]
-            
-        };
-                    if (process.env.fcwbinviter && process.env.fcwbinviter.indexOf('@') > -1) {
-            fcwbinviterArr = process.env.fcwbinviter.split('@');
-            console.log(`邀请码您选择的是用"@"隔开\n`)
-        } else {
-            
-            fcwbinviters= [process.env.fcwbinviter]
-        };
-        Object.keys(fcwbinviteCodes).forEach((item) => {
-        if (fcwbinviteCodes[item]) {
-            fcwbinviteCodeArr.push(fcwbinviteCodes[item])
-        }
-    })
-            Object.keys(fcwbinviters).forEach((item) => {
-        if (fcwbinviters[item]) {
-            fcwbinviterArr.push(fcwbinviters[item])
-        }
-    })
-          console.log(`共${fcwbinviteCodeArr.length}个邀请码`)
-	        for (let k = 0; k < fcwbinviteCodeArr.length; k++) {
-                $.message = ""
-                fcwbinviteCode = fcwbinviteCodeArr[k]
-                fcwbinviter = fcwbinviterArr[k]
-                $.index = k + 1;
           
-await help()
-	        }
     
     
     }
-await home()
-await BROWSE_CHANNEL(1)
-await BROWSE_CHANNEL(2)
-await BROWSE_CHANNEL(3)
-await BROWSE_CHANNEL(4)
+console.log('\n入口 狗东极速版 我的 发财挖宝\n');
+console.log('\n本脚本无任何内置助力\n如果你发现有那么就是别人二改加的\n一切与本人无关\n');
+await home()  
+console.log('\n注意全部助力给账号一\n');
+console.log('\n注意全部助力给账号一\n');
+console.log('\n注意全部助力给账号一\n');
 
-for (let i = 0; i < 5; i++) {
-console.log(`挖宝${i}次`) 
-await $.wait(3000)
-      await wb(curRound,i,i)
-      console.log('第'+curRound+'关')
+  }
+ 
+ 
+     console.log('\n##################开始全部助力账号1#################\n');
+    for (let i = 0; i < cookiesArr.length; i++) {
+        cookie = cookiesArr[i];
+        $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
+        $.index = i + 1;
+        
+        if (!cookie) continue
+        for (let code of inviteCodes) {
+            if ($.UserName === code['user']) continue;
+            if ($.index === 1 &&2) break
+            console.log(`\n【${$.UserName}】去助力【${code['user']}】邀请码：${code['fcwbinviteCode']}`);
+            let res = await help(code['fcwbinviter'],code['fcwbinviteCode'])}
+  
+   
+  
 
     }
-    }
+
   
 })()
   .catch((e) => {
@@ -115,16 +86,16 @@ await $.wait(3000)
 function wb(round,rowIdx,colIdx) {
 
  return new Promise((resolve) => {
-  //let body = {"round":${fcwbroud},"rowIdx":${rowIdx},"colIdx":${colIdx},"linkId":"SS55rTBOHtnLCm3n9UMk7Q"}
+
   
   const nm= {
-    url: `${JD_API_HOST}/?functionId=happyDigDo&body={"round":${fcwbroud},"rowIdx":${rowIdx},"colIdx":${colIdx},"linkId":"SS55rTBOHtnLCm3n9UMk7Q"}&t=1635561607124&appid=activities_platform&client=H5&clientVersion=1.0.0`,
+    url: `${JD_API_HOST}/?functionId=happyDigDo&body={"round":${curRound},"rowIdx":${rowIdx},"colIdx":${colIdx},"linkId":"yCcpwTLIbY6pjaM42ACUVg"}&t=1635561607124&appid=activities_platform&client=H5&clientVersion=1.0.0`,
    
     headers: {
 
         "Cookie": cookie,
         "Origin": "https://api.m.jd.com",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+        "User-Agent": " jdltapp;iPhone;3.7.6;;;M/5.0;hasUPPay/0;pushNoticeIsOpen/1;lang/zh_CN;hasOCPay/0;appBuild/1095;supportBestPay/0;jdSupportDarkMode/0;ef/1;ep/%7B%22ciphertype%22%3A5%2C%22cipher%22%3A%7B%22ud%22%3A%22DJY4CtVwCNDrY2SzCNK3Y2SyC2O4CQHtDzPuCtYnDzOnDwPsD2HtDm%3D%3D%22%2C%22sv%22%3A%22CJGkCm%3D%3D%22%2C%22iad%22%3A%22%22%7D%2C%22ts%22%3A1637764153%2C%22hdid%22%3A%22E3iX40Q%5C%2FvWK2aDObnfiV4WQ2pYAvWoTfZbKY6Yl8iU0%3D%22%2C%22version%22%3A%221.0.3%22%2C%22appname%22%3A%22com.jd.jdmobilelite%22%2C%22ridx%22%3A1%7D;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;",
 
     }
   }
@@ -156,9 +127,9 @@ function wb(round,rowIdx,colIdx) {
 }
     function home() {
  return new Promise((resolve) => {
-  let body = {"linkId":"SS55rTBOHtnLCm3n9UMk7Q"}
+  let body = {"linkId":"pTTvJeSTrpthgk9ASBVGsw"}
   $.get(taskurl('happyDigHome',body), async (err, resp, data) => {
-       //console.log(data)  
+      // console.log(data)  
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
@@ -168,11 +139,24 @@ function wb(round,rowIdx,colIdx) {
             data = JSON.parse(data);
              if(data.success==true){
                  curRound = data.data.curRound
-                 console.log('第'+curRound+'关')}
-               console.log(`export fcwbinviteCode='${data.data.inviteCode}'`)  
-               console.log(`export fcwbinviter='${data.data.markedPin}'`)  
-             }else if(data.success==false){
+                 console.log('第'+curRound+'关')
+                 
+             
+               console.log(`inviteCode='${data.data.inviteCode}'`)  
+               console.log(`inviter='${data.data.markedPin}'`)  
+              if (data.data && data.data.inviteCode && inviteCodes.length === 0) {
+               inviteCodes.push({
+                user: $.UserName,
+                fcwbinviteCode: data.data.inviteCode,
+                fcwbinviter: data.data.markedPin,
+                });
+             }
+                 
+             }             else if(data.success==false){
              console.log('黑号 快去买吧 叼毛')
+              
+          }
+
           }
         }
       } catch (e) {
@@ -186,7 +170,7 @@ function wb(round,rowIdx,colIdx) {
  
   function BROWSE_CHANNEL(taskId) {
  return new Promise((resolve) => {
-  let body = {"linkId":"SS55rTBOHtnLCm3n9UMk7Q","taskType":"BROWSE_CHANNEL","taskId":357,"channel":`${taskId}`}
+  let body = {"linkId":"yCcpwTLIbY6pjaM42ACUVg","taskType":"BROWSE_CHANNEL","taskId":357,"channel":`${taskId}`}
   $.get(taskurl('apTaskDetail',body), async (err, resp, data) => {
       
       try {
@@ -211,17 +195,17 @@ function wb(round,rowIdx,colIdx) {
   })
 }
 
-  function help() {
+  function help(a,b) {
  return new Promise((resolve) => {
  
   const nm= {
-    url: `${JD_API_HOST}/?functionId=happyDigHelp&body={"linkId":"SS55rTBOHtnLCm3n9UMk7Q","inviter":"${fcwbinviter}","inviteCode":"${fcwbinviteCode}"}&t=1635561607124&appid=activities_platform&client=H5&clientVersion=1.0.0`,
+    url: `${JD_API_HOST}/?functionId=happyDigHelp&body={"linkId":"pTTvJeSTrpthgk9ASBVGsw","inviter":"${a}","inviteCode":"${b}"}&t=1638187760169&appid=activities_platform&client=H5&clientVersion=1.0.0&h5st=20211129200920170;4795836212136681;8dd95;tk02wba801c8418ngKIup5xyQZI2BeB0RWqdejdpUInQW4HchEwHi9KIwVFe6Qywar60fgdl7vPeI42Ih6gMfXTmvYOK;39ed331250a9fa343fef1e20fcfd19525ac8be8c6d5615f64c83effc94a4ccb4;3.0;1638187760170`,
    
     headers: {
 
         "Cookie": cookie,
-        "Origin": "https://api.m.jd.com",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+        "Origin": "https://bnzf.jd.com",
+        "User-Agent": " jdltapp;iPhone;3.7.6;;;M/5.0;hasUPPay/0;pushNoticeIsOpen/1;lang/zh_CN;hasOCPay/0;appBuild/1095;supportBestPay/0;jdSupportDarkMode/0;ef/1;ep/%7B%22ciphertype%22%3A5%2C%22cipher%22%3A%7B%22ud%22%3A%22DJY4CtVwCNDrY2SzCNK3Y2SyC2O4CQHtDzPuCtYnDzOnDwPsD2HtDm%3D%3D%22%2C%22sv%22%3A%22CJGkCm%3D%3D%22%2C%22iad%22%3A%22%22%7D%2C%22ts%22%3A1637764153%2C%22hdid%22%3A%22E3iX40Q%5C%2FvWK2aDObnfiV4WQ2pYAvWoTfZbKY6Yl8iU0%3D%22%2C%22version%22%3A%221.0.3%22%2C%22appname%22%3A%22com.jd.jdmobilelite%22%2C%22ridx%22%3A1%7D;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;",
 
     }
   }  
@@ -330,13 +314,13 @@ function jsonParse(str) {
   
   function taskurl(functionId,body) {
   return {
-    url: `${JD_API_HOST}/?functionId=${functionId}&body=${escape(JSON.stringify(body))}&t=1635561607124&appid=activities_platform&client=H5&clientVersion=1.0.0`,
+    url: `${JD_API_HOST}/?functionId=${functionId}&body=${escape(JSON.stringify(body))}&t=1635561607124&appid=activities_platform&client=H5&clientVersion=1.0.0&h5st=20211124221847644%3B8025367011221824%3B8dd95%3Btk02w8ec01bf218ne2CObx0K8h1AFYihunY6rRa2CmHAIi8PKpaBSWhJVgbXMf2osSv0eNDNiKJqaeuF65j7hKkccw2g%3B295347bf1cb60528da749626e0ee7c74c1634f7f5766a3eef505697e20bf74b4%3B3.0%3B1637763527644`,
    
     headers: {
 
         "Cookie": cookie,
-        "Origin": "https://api.m.jd.com",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+        "Origin": "https://bnzf.jd.com",
+        "User-Agent": " jdltapp;iPhone;3.7.6;;;M/5.0;hasUPPay/0;pushNoticeIsOpen/1;lang/zh_CN;hasOCPay/0;appBuild/1095;supportBestPay/0;jdSupportDarkMode/0;ef/1;ep/%7B%22ciphertype%22%3A5%2C%22cipher%22%3A%7B%22ud%22%3A%22DJY4CtVwCNDrY2SzCNK3Y2SyC2O4CQHtDzPuCtYnDzOnDwPsD2HtDm%3D%3D%22%2C%22sv%22%3A%22CJGkCm%3D%3D%22%2C%22iad%22%3A%22%22%7D%2C%22ts%22%3A1637764153%2C%22hdid%22%3A%22E3iX40Q%5C%2FvWK2aDObnfiV4WQ2pYAvWoTfZbKY6Yl8iU0%3D%22%2C%22version%22%3A%221.0.3%22%2C%22appname%22%3A%22com.jd.jdmobilelite%22%2C%22ridx%22%3A1%7D;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;",
 
     }
   }
