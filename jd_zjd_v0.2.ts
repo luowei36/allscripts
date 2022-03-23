@@ -21,6 +21,7 @@ interface Tuan {
 !(async () => {
   let cookiesArr: string[] = await requireConfig()
   for (let [index, value] of cookiesArr.entries()) {
+    if(index < 20){
     try {
       await zjdInit()
       cookie = value
@@ -77,6 +78,7 @@ interface Tuan {
       continue
     }
     await wait(2000)
+  }
   }
 
   o2s(shareCodeSelf)
