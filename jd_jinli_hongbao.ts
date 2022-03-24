@@ -55,7 +55,8 @@ let min: number[] = [0.02, 0.12, 0.3, 0.6, 0.7, 0.8, 1, 2], log: string = '', lo
 
           res = await api('jinli_h5assist', {"redPacketId": code, "followShop": 0, "random": random, "log": log1, "sceneid": "JLHBhPageh5"})
           o2s(res, 'jinli_h5assist')
-
+          console.log('等待45秒')
+          await wait(45000)
           if (res.data.result.status === 0) {
             console.log('助力成功：', parseFloat(res.data.result.assistReward.discount))
             await wait(1000)
