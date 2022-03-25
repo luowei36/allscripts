@@ -116,7 +116,7 @@ interface Tuan {
           console.log('error', JSON.stringify(res))
         }
       } catch (e) {
-        console.log(e)
+        //console.log(e)
         break
       }
       await wait(2000)

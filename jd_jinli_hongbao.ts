@@ -76,7 +76,7 @@ let min: number[] = [0.02, 0.12, 0.3, 0.6, 0.7, 0.8, 1, 2], log: string = '', lo
         }
       }
     } catch (e) {
-      console.log(e)
+      //console.log(e)
     }
   }
 
