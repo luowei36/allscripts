@@ -16,7 +16,7 @@ let min: number[] = [0.02, 0.12, 0.3, 0.6, 0.7, 0.8, 1, 2], log: string = '', lo
 !(async () => {
   let cookiesArr: string[] = await requireConfig(false);
   for (let [index, value] of cookiesArr.entries()) {
-	if(index < 7){
+	if(index < 3){
     try {
 	  cookie = value;
       UserName = decodeURIComponent(cookie.match(/pt_pin=([^;]*)/)![1])
@@ -33,7 +33,7 @@ let min: number[] = [0.02, 0.12, 0.3, 0.6, 0.7, 0.8, 1, 2], log: string = '', lo
       shareCodesSelf.push(res.data.result.redpacketInfo.id)
       await wait(1000)
 	} catch (e) {
-      console.log(e)
+      //console.log(e)
     }
   }
   }
