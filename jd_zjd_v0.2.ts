@@ -31,7 +31,6 @@ interface Tuan {
       res = await api('distributeBeanActivityInfo', {"paramData": {"channel": "FISSION_BEAN"}})
       //o2s(res)
       await wait(2000)
-
       if (res.data.assistStatus === 1) {
         // 已开，没满
         console.log('已开团，', res.data.assistedRecords.length, '/', res.data.assistNum, '，剩余', Math.round(res.data.assistValidMilliseconds / 1000 / 60), '分钟')

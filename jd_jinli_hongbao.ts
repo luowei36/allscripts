@@ -47,8 +47,8 @@ let min: number[] = [0.02, 0.12, 0.3, 0.6, 0.7, 0.8, 1, 2], log: string = '', lo
       UserName = decodeURIComponent(cookie.match(/pt_pin=([^;]*)/)![1])
       shareCodes = Array.from(new Set([...shareCodesSelf]))
       for (let code of shareCodes) {
-        console.log('等待45秒')
-        await wait(45000)
+          console.log('等待45秒')
+          await wait(45000)
         if (!fullCode.includes(code)) {
           UA = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random() * 4 + 10)}.${Math.ceil(Math.random() * 4)};${randomString(40)}`
           log = logs[getRandomNumberByRange(0, logs.length - 1)]
