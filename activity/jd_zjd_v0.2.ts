@@ -31,7 +31,6 @@ interface Tuan {
       res = await api('distributeBeanActivityInfo', {"paramData": {"channel": "FISSION_BEAN"}})
       //o2s(res)
       await wait(2000)
-
       if (res.data.assistStatus === 1) {
         // 已开，没满
         console.log('已开团，', res.data.assistedRecords.length, '/', res.data.assistNum, '，剩余', Math.round(res.data.assistValidMilliseconds / 1000 / 60), '分钟')
@@ -56,7 +55,7 @@ interface Tuan {
           await wait(2000)
         }
       } else if (res.data.assistedRecords.length === res.data.assistNum) {
-        console.log('已成团', JSON.stringify(res))
+        console.log('已成团')
         if (res.data.canStartNewAssist) {
           res = await api('vvipclub_distributeBean_startAssist', {"activityIdEncrypted": res.data.id, "channel": "FISSION_BEAN"})
           await wait(2000)
@@ -113,7 +112,7 @@ interface Tuan {
         } else if (res.success) {
           console.log('助力成功')
         } else {
-          console.log('error', JSON.stringify(res))
+          console.log('error')
           break
         }
       } catch (e) {

@@ -47,16 +47,15 @@ let min: number[] = [0.02, 0.12, 0.3, 0.6, 0.7, 0.8, 1, 2], log: string = '', lo
       UserName = decodeURIComponent(cookie.match(/pt_pin=([^;]*)/)![1])
       shareCodes = Array.from(new Set([...shareCodesSelf]))
       for (let code of shareCodes) {
+          console.log('等待45秒')
+          await wait(45000)
         if (!fullCode.includes(code)) {
           UA = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random() * 4 + 10)}.${Math.ceil(Math.random() * 4)};${randomString(40)}`
           log = logs[getRandomNumberByRange(0, logs.length - 1)]
           let random = log.match(/"random":"(\d+)"/)[1], log1 = log.match(/"log":"(.*)"/)[1]
           console.log(`账号${index + 1} ${UserName} 去助力 ${code} ${shareCodesSelf.includes(code) ? '*内部*' : ''}`)
-
           res = await api('jinli_h5assist', {"redPacketId": code, "followShop": 0, "random": random, "log": log1, "sceneid": "JLHBhPageh5"})
-          o2s(res, 'jinli_h5assist')
-          console.log('等待45秒')
-          await wait(45000)
+          //o2s(res, 'jinli_h5assist')
           if (res.data.result.status === 0) {
             console.log('助力成功：', parseFloat(res.data.result.assistReward.discount))
             await wait(1000)

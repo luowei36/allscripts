@@ -164,7 +164,7 @@ function help(a = '', b = '') {
       await requestAlgo()
   let body = `{"linkId":"pTTvJeSTrpthgk9ASBVGsw","inviter":"${a}","inviteCode":"${b}"}`
 
-    let h5st = ${decrypt(Date.now(), '', '', url)}&_=${Date.now() + 2}&sceneval=2&g_login_type=1&callback=jsonpCBK${String.fromCharCode(Math.floor(Math.random() * 26) + "A".charCodeAt(0))}&g_ty=ls
+    let h5st = h5stSign(body) || 'undefined'
     let opts = {
       url: `https://api.m.jd.com/?functionId=happyDigHelp&body=${body}&t=${Date.now()}&appid=activities_platform&client=H5&clientVersion=1.0.0&h5st=${h5st}`,
      
