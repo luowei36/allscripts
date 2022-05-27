@@ -102,7 +102,9 @@ def h5activityIndex(cookie):
     inviteCode = id_findall.findall(res)
     if inviteCode:
         inviteCode = inviteCode[0]
-        # inviteCode_list.append(inviteCode)
+        if not inviteCode:
+            logger.info(f"账号 {get_pin(cookie)} 获取助力码失败\n")
+            return None
         logger.info(f"账号 {get_pin(cookie)} 的锦鲤红包助力码为 {inviteCode}\n")
         return inviteCode
     else:
@@ -185,6 +187,9 @@ def main():
     index = 0
 
     inviteCode = h5activityIndex(cookie_list_pin[index])
+    if not inviteCode:
+        logger.info('没有需要助力的锦鲤红包助力码\n')
+        return
     for cookie in cookie_list:
         status = jinli_h5assist(cookie, inviteCode)
         if status:
@@ -198,6 +203,9 @@ def main():
                 inviteCode = h5activityIndex(cookie_list_pin[index])
                 if inviteCode:
                     break
+                if not inviteCode:
+                    logger.info('没有需要助力的锦鲤红包助力码\n')
+                    return
     else:
         logger.info('*******************开红包*******************\n')
         h5receiveRedpacketAll(cookie_list_pin[index])
