@@ -9,7 +9,6 @@ export Rabbit_Url="log接口的地址，和我的接口格式一样的都可以"
 环境变量kois中填入需要助力的pt_pin，有多个请用 '@'或'&'或空格 符号连接,不填默认全部账号内部随机助力
 脚本内或环境变量填写，优先环境变量
 '''
-
 import os
 import re
 import time
@@ -114,11 +113,21 @@ def h5activityIndex(cookie):
 # 助力
 statusDesc_findall = re.compile(r',"statusDesc":"(.+?)"')
 
+statusDesc2_findall = re.compile(r',"rtn_code":(\d+),')
+
 
 def jinli_h5assist(cookie, redPacketId):
     ua = 'MQQBrowser/26 Mozilla/5.0 (Linux; U; Android 2.3.7; zh-cn; MB200 Build/GRJ22; CyanogenMod-7) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'
     body = {"redPacketId": redPacketId, "followShop": 0, "sceneid": sceneid}
-    res = taskPostUrl("jinli_h5assist", body, cookie, ua)
+    for i in range(3):
+        res = taskPostUrl("jinli_h5assist", body, cookie, ua)
+        statusDesc2 = statusDesc_findall.findall(res)
+        if not statusDesc2:
+            break
+        if str(statusDesc2) == "403":
+            continue
+        else:
+            break
     logger.info(f'账号 {get_pin(cookie)} 去助力{redPacketId}')
     if not res:
         return
